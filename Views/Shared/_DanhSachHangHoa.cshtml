@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!-- Breadcrumb Start -->
+@RenderSection("breadcrumb" , required: false)
+<!-- Breadcrumb End -->
+<!-- Shop Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <!-- Shop Sidebar Start -->
+        @await Component.InvokeAsync("MenuLoai")
+        <!-- Shop Sidebar End -->
+        <!-- Shop Product Start -->
+        <div class="col-lg-9 col-md-8">
+            <div class="row pb-3">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- Shop Product End -->
+    </div>
+</div>
+<!-- Shop End -->

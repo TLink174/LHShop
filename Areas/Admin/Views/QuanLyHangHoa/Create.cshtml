@@ -1,0 +1,111 @@
+﻿@using LHShop.Data
+@model LHShop.Areas.Admin.Models.HangHoaMD
+
+@{
+    ViewData["Title"] = "Create";
+    var loaiList = ViewBag.MaLoai as List<Loai>;
+    var nccList = ViewBag.MaNcc as List<Nhacungcap>;
+}
+
+<!-- Main content -->
+<section class="content">
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">General</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="TenHh" class="control-label">Tên sản phẩm</label>
+                            <input asp-for="TenHh" class="form-control" />
+                            <span asp-validation-for="TenHh" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MaLoai" class="control-label">Loại sản phẩm</label>
+                            @if (ViewBag.MaLoai != null)
+                            {
+                                <select asp-for="MaLoai" class="form-control" asp-items="ViewBag.MaLoai"></select>
+                            }
+                            <span asp-validation-for="MaLoai" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MoTaDonVi" class="control-label">Mô tả đơn vị</label>
+                            <input asp-for="MoTaDonVi" class="form-control" />
+                            <span asp-validation-for="MoTaDonVi" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="HinhFile" class="control-label">Hình ảnh</label>
+                            <input asp-for="HinhFile" class="form-control" type="file" />
+                            <span asp-validation-for="HinhFile" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DonGia" class="control-label">Đơn giá</label>
+                            <input asp-for="DonGia" class="form-control" />
+                            <span asp-validation-for="DonGia" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NgaySx" class="control-label">Ngày sản xuất</label>
+                            <input asp-for="NgaySx" class="form-control" type="date" id="NgaySX" />
+                            <span asp-validation-for="NgaySx" class="text-danger"></span>
+                            <span id="NgaySXValidationError" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MaNcc" class="control-label">Nhà cung cấp</label>
+                            @if (ViewBag.MaNcc != null)
+                            {
+                                <select asp-for="MaNcc" class="form-control" asp-items="ViewBag.MaNcc"></select>
+                            }
+                            <span asp-validation-for="MaNcc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MoTa" class="control-label">Mô tả</label>
+                            <textarea asp-for="MoTa" id="moTaEditor" class="form-control"></textarea>
+                            <span asp-validation-for="MoTa" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <a href="#" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success float-right"> Thêm sản phẩm </button>
+            </div>
+        </div>
+    </form>
+</section>
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            CKEDITOR.replace('moTaEditor');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ngaySXInput = document.getElementById('NgaySX');
+            var form = ngaySXInput.closest('form');
+
+            form.addEventListener('submit', function (event) {
+                var ngaySXValue = new Date(ngaySXInput.value);
+                var now = new Date();
+
+                if (ngaySXValue > now) {
+                    event.preventDefault(); // Ngăn chặn việc gửi form đi
+                    document.getElementById('NgaySXValidationError').textContent = 'Ngày sản xuất không được sau ngày hiện tại';
+                }
+            });
+        });
+    </script>
+
+}
+<!-- /.content -->

@@ -1,0 +1,116 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Confirmation Modal Example</title>
+    <style>
+        /* Style for modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Delete Confirmation Modal Example</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="itemList">
+            <!-- Example items -->
+            <tr>
+                <td>Item 1</td>
+                <td><button class="deleteBtn" data-id="1">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Item 2</td>
+                <td><button class="deleteBtn" data-id="2">Delete</button></td>
+            </tr>
+            <!-- Add more items as needed -->
+        </tbody>
+    </table>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Are you sure you want to delete this item?</p>
+            <form id="deleteForm" method="post">
+                <input type="hidden" name="id" id="deleteId">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        <script>
+            // JavaScript to handle modal
+            document.addEventListener('DOMContentLoaded', function () {
+                var modal = document.getElementById('myModal');
+                var span = document.getElementsByClassName('close')[0];
+                var deleteForm = document.getElementById('deleteForm');
+                var deleteIdInput = document.getElementById('deleteId');
+
+                document.querySelectorAll('.deleteBtn').forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        var itemId = this.getAttribute('data-id');
+                        deleteIdInput.value = itemId;
+                        deleteForm.action = `/QuanLyHangHoa/Delete/${itemId}`;
+                        modal.style.display = 'block';
+                    });
+                });
+
+                span.onclick = function () {
+                    modal.style.display = 'none';
+                }
+
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                }
+            });
+        </script>
+    }
+    
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Dashboard
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                    Hàng hoá
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a asp-action="Index" asp-controller="QuanLyHangHoa" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Danh sách hàng hoá</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="Create" asp-controller="QuanLyHangHoa" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Thêm sản phẩm</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-award"></i>
+                <p>
+                    Loại sản phẩm
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a asp-action="Index" asp-controller="Loai" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Danh sách loại</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="Create" asp-controller="Loai" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Thêm loại</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-truck"></i>
+                <p>
+                    Nhà cung cấp
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a asp-action="Index" asp-controller="NhaCungCap" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Danh sách nhà cung cấp</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="Create" asp-controller="NhaCungCap" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Thêm nhà cung cấp</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-user"></i>
+                <p>
+                    Khách hàng
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a asp-action="Index" asp-controller="KhachHang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Danh sách khách hàng</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="Create" asp-controller="KhachHang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Thêm khách hàng</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                    Tables
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- /.sidebar-menu -->

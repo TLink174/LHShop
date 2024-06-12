@@ -1,0 +1,69 @@
+﻿@model LHShop.ViewModels.LoginVM
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container-fluid">
+    <div class="row px-xl-5 justify-content-center">
+        <div class="col-lg-4">
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Đăng nhập</span></h5>
+            <form asp-action="DangNhap" class="mx-auto" asp-route-returnurl="@ViewBag.ReturnUrl">
+                <div class="bg-light p-30 mb-5">
+                    <div class="col-md-20">
+                        
+                        @* <div class="col-md-6 form-group">
+                            <label asp-for="@Model.HoTen"></label><sup>*</sup>
+                            <input asp-for="@Model.HoTen" class="form-control" type="text">
+                            <span asp-validation-for="@Model.HoTen" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="@Model.NgaySinh"></label><sup>*</sup>
+                            <input asp-for="@Model.NgaySinh" class="form-control">
+                            <span asp-validation-for="@Model.NgaySinh" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Giới tính</label>
+                            <select class="custom-select" asp-for="@Model.GioiTinh">
+                                <option selected>Nam</option>
+                                <option>Nữ</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="@Model.DiaChi"></label><sup>*</sup>
+                            <input asp-for="@Model.DiaChi" class="form-control" type="text">
+                            <span asp-validation-for="@Model.DiaChi" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="@Model.DienThoai"></label><sup>*</sup>
+                            <input asp-for="@Model.DienThoai" class="form-control" type="text">
+                            <span asp-validation-for="@Model.DienThoai" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="@Model.Email"></label><sup>*</sup>
+                            <input asp-for="@Model.Email" class="form-control" type="text">
+                            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                        </div> *@
+                        
+                    </div>
+@*                     <div class="form-group">
+                        <label for="Hinh">Hình</label><sup>*</sup>
+                        <input name="Hinh" class="form-control" type="file">
+                    </div> *@
+                    <div class="form-group mb-4">
+                        <label asp-for="@Model.UserName"></label><sup>*</sup>
+                        <input asp-for="@Model.UserName" class="form-control" type="text">
+                        <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="@Model.Password"></label><sup>*</sup>
+                        <input asp-for="@Model.Password" class="form-control" type="text">
+                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary font-weight-bold py-3">Đăng nhập</button>
+                    <a asp-asp-controller="KhachHang" asp-action="QuenMatKhau" style="color: black">Quên mật khẩu</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
